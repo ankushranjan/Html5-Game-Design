@@ -27,7 +27,7 @@ var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
         this.canvas.width = 720;
-        this.canvas.height = 720;
+        this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -70,7 +70,7 @@ function component(width, height, color, x, y, type) {
         var rockbottom = myGameArea.canvas.height - this.height;
         if (this.y > rockbottom) {
             this.y = rockbottom;
-            this.gravitySpeed = 0;
+            this.gravitySpeed = 0.01;
         }
     }
     this.crashWith = function(otherobj) {
@@ -102,13 +102,13 @@ function updateGameArea() {
     if (myGameArea.frameNo == 1 || everyinterval(150)) {
         x = myGameArea.canvas.width;
         minHeight = 20;
-        maxHeight = 200;
+        maxHeight = 0;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
-        minGap = 50;
+        minGap = 150;
         maxGap = 200;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(10, height, "green", x, 0));
-        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+        myObstacles.push(new component(8, height, "black", x, 0));
+        myObstacles.push(new component(8, x - height - gap, "black", x, height + gap));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].x += -1;
