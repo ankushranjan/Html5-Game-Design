@@ -5,7 +5,7 @@
 <style>
 canvas {
     border:1px solid #4c00ff;
-    background-color: #ef73ff;
+    background-color: #c7c7c788;
 }
 </style>
 </head>
@@ -17,7 +17,7 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece = new component(30, 30, "black", 10, 120);
     myGamePiece.gravity = 0.05;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
@@ -28,7 +28,7 @@ var myGameArea = {
     start : function() {
         this.canvas.width = 480;
         this.canvas.height = 270;
-        this.context = this.canvas.getContext("2d");
+        this.context = this.canvas.getContext("3d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
