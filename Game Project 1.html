@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
 canvas {
-    border:1px solid #ff0000;
-    background-color: #ffffff88;
+    border:1px solid #000000;
+    background-color: #ffffff;
 }
 </style>
 </head>
@@ -26,7 +26,7 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 750;
+        this.canvas.width = 720;
         this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
@@ -130,7 +130,7 @@ function accelerate(n) {
 }
 </script>
 <br>
-<button onmousedown="accelerate(-0.1)" onmouseup="accelerate(0.05)">TAP-TAP</button>
+<button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">TAP-TAP</button>
 <p>Use the TAP-TAP button to stay in the air</p>
 </body>
 </html>
